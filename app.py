@@ -81,6 +81,7 @@ row_style = {
 
 # Layout do Dash
 app = dash.Dash(__name__)
+server = app.server  # ESSA LINHA É FUNDAMENTAL pro Render
 
 app.layout = html.Div([
     html.H1("⚡ Painel Interativo para prospecção de clientes – Solar Map ⚡", style={'textAlign': 'center'}),
@@ -384,5 +385,5 @@ def update_outputs(selected_bairros, selected_info, min_value, max_value, clickD
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8050))  # pega a PORT que o Render passa
+    port = int(os.environ.get('PORT', 8050))
     app.run(host='0.0.0.0', port=port, debug=True)
