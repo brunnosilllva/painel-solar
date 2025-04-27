@@ -385,5 +385,5 @@ def update_outputs(selected_bairros, selected_info, min_value, max_value, clickD
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8050))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    port = int(os.environ.get("PORT", 8050))  # Render vai passar o PORT pelo ambiente
+    app.run(host="0.0.0.0", port=port, debug=False)
