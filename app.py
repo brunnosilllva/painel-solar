@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import json
 import dash
+import os
 from dash import dcc, html, Input, Output, State
 
 # Token do Mapbox
@@ -381,6 +382,7 @@ def update_outputs(selected_bairros, selected_info, min_value, max_value, clickD
             f"{quantidade_placas:,.0f}", f"{potencial_medio_dia:,.2f}", f"{renda_total:,.2f}",
             f"{renda_per_capita:,.2f}", f"{renda_domiciliar_per_capita:,.2f}")
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
-server = app.server  # Para o Heroku saber como rodar
+    port = int(os.environ.get('PORT', 8050))
+    app.run(host='0.0.0.0', port=port, debug=True)
