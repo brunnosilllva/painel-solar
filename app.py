@@ -11,8 +11,8 @@ from dash import dcc, html, Input, Output, State
 px.set_mapbox_access_token("pk.eyJ1IjoiYnJ1bm9zaWx2YTkyIiwiYSI6ImNsaWFrdmU1azAzeWczbHQ3MzYzaHlhMmcifQ.r84qOFtY3ZFJGE7o7RYzGg")
 
 # Carregar e preparar dados
-df = pd.read_excel("data/Dados_energia_solar.xlsx")
-gdf = gpd.read_file("data/Dados_energia_solar.geojson")
+df = pd.read_excel(os.path.join("data", "Dados_energia_solar.xlsx"))
+gdf = gpd.read_file(os.path.join("data", "Dados_energia_solar.geojson"))
 
 if gdf.crs != "EPSG:4326":
     gdf = gdf.to_crs("EPSG:4326")
@@ -384,6 +384,9 @@ def update_outputs(selected_bairros, selected_info, min_value, max_value, clickD
             f"{renda_per_capita:,.2f}", f"{renda_domiciliar_per_capita:,.2f}")
 
 
+
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8050))  # Render vai passar o PORT pelo ambiente
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(
+        host='0.0.0.0',
+        port=int(os.environ.get('PORT', 8050))  # <- Aqui
+    )
