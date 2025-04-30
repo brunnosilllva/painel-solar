@@ -383,6 +383,7 @@ def update_outputs(selected_bairros, selected_info, min_value, max_value, clickD
             f"{quantidade_placas:,.0f}", f"{potencial_medio_dia:,.2f}", f"{renda_total:,.2f}",
             f"{renda_per_capita:,.2f}", f"{renda_domiciliar_per_capita:,.2f}")
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))  # Railway define a porta via variável de ambiente
-    app.run_server(host="0.0.0.0", port=port, debug=True)
+port = int(os.environ.get("PORT", 8050))
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=port, debug=True)
