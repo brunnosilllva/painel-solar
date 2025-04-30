@@ -386,4 +386,3 @@ def update_outputs(selected_bairros, selected_info, min_value, max_value, clickD
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))  # Railway define a porta via variável de ambiente
     app.run_server(host="0.0.0.0", port=port, debug=True)
-
